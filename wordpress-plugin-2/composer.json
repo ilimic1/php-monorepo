@@ -1,6 +1,7 @@
 {
   "name": "ilimic/hello-world-2",
   "description": "Test plugin which outputs hello in the admin, used for testing.",
+  "license": "MIT",
   "type": "wordpress-plugin",
   "authors": [
     {
