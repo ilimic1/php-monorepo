@@ -2,7 +2,7 @@
 /*
 Plugin Name: Hello World 1
 Plugin URI: https://ilimic.from.hr
-Description: Dummy plugin which outputs hello in the admin, used for testing.
+Description: Test plugin which outputs hello in the admin, used for testing.
 Version: 1.0
 Author: Ivo Limić
 Author URI: https://ilimic.from.hr
