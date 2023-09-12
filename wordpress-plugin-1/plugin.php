@@ -10,6 +10,8 @@ Author URI: https://ilimic.from.hr
 
 namespace Ilimic\Plugins\HelloWorld1;
 
+require_once __DIR__ . '/vendor/autoload.php';
+
 function hello_world() {
 	echo '<p>Hello World 1</p>';
 }

@@ -8,5 +8,8 @@
       "name": "Ivo Limić",
       "email": "ilimic1@gmail.com"
     }
-  ]
+  ],
+  "require": {
+    "yahnis-elsts/plugin-update-checker": "^5.2"
+  }
 }
