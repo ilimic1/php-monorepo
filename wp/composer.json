@@ -1,0 +1,61 @@
+{
+    "name": "agilo/web-starter",
+    "description": "Agilo Web Starter",
+    "authors": [
+        {
+            "name": "Ante Primorac",
+            "email": "ante@agilo.co"
+        },
+        {
+            "name": "Ivo Limić",
+            "email": "ivo@agilo.co"
+        }
+    ],
+    "config": {
+        "vendor-dir": "bin/composer_vendor",
+        "secure-http": false,
+        "sort-packages": true
+    },
+    "repositories": [
+        {
+          "type":"composer",
+          "url":"http://wpackagist.org"
+        },
+        {
+            "type": "path",
+            "url": "../wordpress-plugin-1",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../wordpress-plugin-2",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "drupal-composer/preserve-paths": "^0.1.4",
+        "ilimic/hello-world-1": "dev-master",
+        "ilimic/hello-world-2": "dev-master",
+        "johnpbloch/wordpress": "6.3.1",
+        "wpackagist-plugin/query-monitor": "*",
+        "wpackagist-plugin/wp-crontrol": "*"
+    },
+    "extra": {
+        "wordpress-install-dir": "public",
+        "installer-paths": {
+            "public/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "public/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+            "public/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        },
+        "preserve-paths": [
+            "public/wp-content/plugins/",
+            "public/wp-content/mu-plugins/",
+            "public/wp-content/themes/"
+        ]
+    }
+}

@@ -1,0 +1,70 @@
+version: "3.8"
+services:
+  nginx:
+    build: ./wp/docker/nginx/
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - php
+    volumes:
+      - ./wp/public:/var/www/wp/public:cached
+      - ./wp/shared:/var/www/wp/shared:delegated
+      - ./wp/src:/var/www/wp/src:cached
+      - ./wordpress-plugin-1:/var/www/wordpress-plugin-1:cached
+      - ./wordpress-plugin-2:/var/www/wordpress-plugin-2:cached
+    networks:
+      default:
+        aliases:
+          - wp-monorepo.test
+
+  php:
+    build: ./wp/docker/php/
+    expose:
+      - 9000
+    environment:
+      DB_HOST: db
+      DB_NAME: ${MYSQL_DATABASE}
+      DB_USER: ${MYSQL_USER}
+      DB_PASS: ${MYSQL_PASSWORD}
+      WP_ENVIRONMENT_TYPE: ${WP_ENVIRONMENT_TYPE}
+    links:
+      - db
+    volumes:
+      - ./wp/public:/var/www/wp/public:cached
+      - ./wp/shared:/var/www/wp/shared:delegated
+      - ./wp/src:/var/www/wp/src:cached
+      - ./wordpress-plugin-1:/var/www/wordpress-plugin-1:cached
+      - ./wordpress-plugin-2:/var/www/wordpress-plugin-2:cached
+      - ./wp/docker/logs/php:/var/log/php
+
+  db:
+    image: mysql:8.0
+    ports:
+      - 3306:3306
+    volumes:
+      - ./wp/db:/docker-entrypoint-initdb.d
+      - ./wp/db:/db-imports
+      - ./wp/docker/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8080:80
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+
+  mailpit:
+    image: axllent/mailpit
+    ports:
+      - 1025:1025
+      - 8025:8025
+    environment:
+      TZ: Europe/Zagreb
