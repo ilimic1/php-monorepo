@@ -1,0 +1,13 @@
+name: Close Pull Request
+
+on:
+  pull_request_target:
+    types: [opened]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: superbrothers/close-pull-request@v3
+        with:
+          comment: "Thank you for your pull request. However, you have submitted this PR on the read-only sub split of `ilimic/hello-world-1` plugin. Please submit your PR on the https://github.com/ilimic1/php-monorepo repository.<br><br>Thanks!"
