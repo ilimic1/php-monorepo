@@ -37,16 +37,16 @@ jobs:
           restore-keys: php7.4-composer_v2-
 
       - name: Install dependencies
-        run: composer install --no-progress --no-suggest -d ./wordpress-plugin
+        run: composer install --no-progress --no-suggest -d ./wordpress-plugin-3
 
       - name: Push to read-only repo
         uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.MONOREPO_SPLITTER_PERSONAL_ACCESS_TOKEN }}
         with:
-          source-directory: "wordpress-plugin"
+          source-directory: "wordpress-plugin-3"
           destination-github-username: "ilimic1"
-          destination-repository-name: "php-monorepo-wordpress-plugin-1"
+          destination-repository-name: "php-monorepo-wordpress-plugin-3"
           user-email: ilimic1@gmail.com
           target-branch: master
 
