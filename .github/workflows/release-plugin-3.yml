@@ -15,6 +15,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          repository: ilimic1/php-monorepo-wordpress-plugin-1
+          repository: ilimic1/php-monorepo-wordpress-plugin-3
           tag_name: ${{ github.event.release.tag_name }}
           name: ${{ github.event.release.name }}
