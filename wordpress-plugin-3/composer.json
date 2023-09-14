@@ -1,0 +1,15 @@
+{
+  "name": "ilimic/hello-world-3",
+  "description": "Test plugin which outputs hello in the admin, used for testing.",
+  "license": "MIT",
+  "type": "wordpress-plugin",
+  "authors": [
+    {
+      "name": "Ivo Limić",
+      "email": "ilimic1@gmail.com"
+    }
+  ],
+  "require": {
+    "yahnis-elsts/plugin-update-checker": "^5.2"
+  }
+}
