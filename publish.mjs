@@ -49,14 +49,17 @@ files.forEach((file) => {
 
 let result = null;
 
-result = execSync("git add -A");
+result = execSync("git status");
 console.log(result.toString("utf8"));
 
-result = execSync(`git commit -m "${version}"`);
-console.log(result.toString("utf8"));
+// result = execSync("git add -A");
+// console.log(result.toString("utf8"));
 
-result = execSync(`git tag v${version}`);
-console.log(result.toString("utf8"));
+// result = execSync(`git commit -m "${version}"`);
+// console.log(result.toString("utf8"));
 
-result = execSync(`git push --atomic origin master v${version}`);
-console.log(result.toString("utf8"));
+// result = execSync(`git tag v${version}`);
+// console.log(result.toString("utf8"));
+
+// result = execSync(`git push --atomic origin master v${version}`);
+// console.log(result.toString("utf8"));
