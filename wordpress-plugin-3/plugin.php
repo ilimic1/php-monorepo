@@ -8,7 +8,7 @@ Author: Ivo Limić
 Author URI: https://ilimic.from.hr
 */
 
-namespace Ilimic\Plugins\HelloWorld2;
+namespace Ilimic\Plugins\HelloWorld3;
 
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
