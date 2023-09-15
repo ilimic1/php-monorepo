@@ -43,8 +43,8 @@ jobs:
         run: rm -f .gitignore # remove .gitignore so vendor directory is not ignored
 
       - name: Push to read-only repo
-        uses: cpina/github-action-push-to-another-repository@main
-        # uses: FlowerAce/git-push@88d92aa7901fd0ba31b5fa40af5a259632bbf582 # has support for tags
+        # uses: cpina/github-action-push-to-another-repository@main
+        uses: FlowerAce/git-push@88d92aa7901fd0ba31b5fa40af5a259632bbf582 # has support for tags
         env:
           API_TOKEN_GITHUB: ${{ secrets.MONOREPO_SPLITTER_PERSONAL_ACCESS_TOKEN }}
         with:
@@ -54,7 +54,7 @@ jobs:
           user-email: ilimic1@gmail.com
           target-branch: master
           create-target-branch-if-needed: true
-          # tag-name: ${{ github.ref_name }}
+          tag-name: ${{ github.ref_name }}
 
       # - name: Copy Release
       #   uses: softprops/action-gh-release@v1
