@@ -2,6 +2,7 @@ import fs from "fs";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import { execSync } from "child_process";
+import { exit } from "process";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -22,9 +23,13 @@ function validateVersion(version) {
 
 const [, , version] = process.argv;
 
-console.log(process.argv);
-
 validateVersion(version);
+
+let execResult = null;
+execResult = execSync("git status --porcelain=v1");
+console.log('git status --porcelain=v1', execResult.toString("utf8"));
+
+exit(0);
 
 const files = [
   "wordpress-plugin-1/plugin.php",
@@ -47,19 +52,14 @@ files.forEach((file) => {
   );
 });
 
-let result = null;
+// execResult = execSync("git add -A");
+// console.log(execResult.toString("utf8"));
 
-result = execSync("git status");
-console.log(result.toString("utf8"));
+// execResult = execSync(`git commit -m "${version}"`);
+// console.log(execResult.toString("utf8"));
 
-// result = execSync("git add -A");
-// console.log(result.toString("utf8"));
+// execResult = execSync(`git tag v${version}`);
+// console.log(execResult.toString("utf8"));
 
-// result = execSync(`git commit -m "${version}"`);
-// console.log(result.toString("utf8"));
-
-// result = execSync(`git tag v${version}`);
-// console.log(result.toString("utf8"));
-
-// result = execSync(`git push --atomic origin master v${version}`);
-// console.log(result.toString("utf8"));
+// execResult = execSync(`git push --atomic origin master v${version}`);
+// console.log(execResult.toString("utf8"));
