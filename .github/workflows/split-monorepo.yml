@@ -2,8 +2,6 @@ name: "Split monorepo"
 
 on:
   push:
-    branches:
-      - master
     tags:
       - "v*"
 

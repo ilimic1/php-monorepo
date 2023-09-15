@@ -2,7 +2,15 @@ import fs from "fs";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import { execSync } from "child_process";
-import { exit } from "process";
+
+/**
+ * Updates files with new version, creates a git tag and pushes to origin.
+ *
+ * Usage:
+ * node publish.mjs 1.0.0
+ * node publish.mjs 1.0.1
+ * node publish.mjs 1.0.1-beta.1
+ */
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -26,10 +34,10 @@ const [, , version] = process.argv;
 validateVersion(version);
 
 let execResult = null;
-execResult = execSync("git status --porcelain=v1");
-console.log('git status --porcelain=v1', execResult.toString("utf8"));
-
-exit(0);
+execResult = execSync("git status --porcelain=v1", { encoding: "utf8" });
+if (execResult.length > 0) {
+  throw new Error("Please commit all changes before publishing.");
+}
 
 const files = [
   "wordpress-plugin-1/plugin.php",
@@ -52,14 +60,16 @@ files.forEach((file) => {
   );
 });
 
-// execResult = execSync("git add -A");
-// console.log(execResult.toString("utf8"));
+execResult = execSync("git add -A", { encoding: "utf8" });
+console.log(execResult);
 
-// execResult = execSync(`git commit -m "${version}"`);
-// console.log(execResult.toString("utf8"));
+execResult = execSync(`git commit -m "${version}"`, { encoding: "utf8" });
+console.log(execResult);
 
-// execResult = execSync(`git tag v${version}`);
-// console.log(execResult.toString("utf8"));
+execResult = execSync(`git tag v${version}`, { encoding: "utf8" });
+console.log(execResult);
 
-// execResult = execSync(`git push --atomic origin master v${version}`);
-// console.log(execResult.toString("utf8"));
+execResult = execSync(`git push --atomic origin master v${version}`, {
+  encoding: "utf8",
+});
+console.log(execResult);

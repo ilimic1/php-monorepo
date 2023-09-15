@@ -1,5 +1,7 @@
 name: "Copy release"
 
+# Copies the release from the monorepo to the read-only repo.
+
 on:
   release:
     types: [published]
