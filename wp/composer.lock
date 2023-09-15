@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2fcb12e9c3f2bc2fca81bb65ce0e0d3b",
+    "content-hash": "70ed8bd17bb1972c7eef4449765200a4",
     "packages": [
         {
             "name": "composer/installers",
@@ -242,7 +242,37 @@
             "dist": {
                 "type": "path",
                 "url": "../wordpress-plugin-2",
-                "reference": "cda673f43b98f884ba531be8154d2d60638e0656"
+                "reference": "97c11dc398cf3e2021a2d52540ecad216fed169d"
+            },
+            "require": {
+                "yahnis-elsts/plugin-update-checker": "^5.2"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivo Limić",
+                    "email": "ilimic1@gmail.com"
+                }
+            ],
+            "description": "Test plugin which outputs hello in the admin, used for testing.",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "ilimic/hello-world-3",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../wordpress-plugin-3",
+                "reference": "67d485887224a3e2730b6424333ed452a6051678"
+            },
+            "require": {
+                "yahnis-elsts/plugin-update-checker": "^5.2"
             },
             "type": "wordpress-plugin",
             "license": [
@@ -489,7 +519,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "ilimic/hello-world-1": 20,
-        "ilimic/hello-world-2": 20
+        "ilimic/hello-world-2": 20,
+        "ilimic/hello-world-3": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -34,13 +34,21 @@
             "options": {
                 "symlink": true
             }
+        },
+        {
+            "type": "path",
+            "url": "../wordpress-plugin-3",
+            "options": {
+                "symlink": true
+            }
         }
     ],
     "require": {
         "php": "^8.0",
         "drupal-composer/preserve-paths": "^0.1.4",
-        "ilimic/hello-world-1": "dev-master",
-        "ilimic/hello-world-2": "dev-master",
+        "ilimic/hello-world-1": "@dev",
+        "ilimic/hello-world-2": "@dev",
+        "ilimic/hello-world-3": "@dev",
         "johnpbloch/wordpress": "6.3.1",
         "wpackagist-plugin/query-monitor": "*",
         "wpackagist-plugin/wp-crontrol": "*"
