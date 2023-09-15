@@ -3,7 +3,7 @@
 Plugin Name: Hello World 3
 Plugin URI: https://ilimic.from.hr
 Description: Test plugin which outputs hello in the admin, used for testing.
-Version: 1.0.7
+Version: 1.0.12
 Author: Ivo Limić
 Author URI: https://ilimic.from.hr
 */
