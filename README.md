@@ -12,6 +12,7 @@ We are splitting a monolithic repository to read-only standalone repositories wh
 1. `nvm use`
 2. `npm i --prefix wp`
 3. `npm run addcert --prefix wp`
-4. `npm run build:wordpress --prefix wp`
-5. `docker-compose up --build`
-6. Visit https://wp-monorepo.test
+4. `composer install -d wordpress-plugin-3`
+5. `npm run build:wordpress --prefix wp`
+6. `docker-compose up --build`
+7. Visit https://wp-monorepo.test
