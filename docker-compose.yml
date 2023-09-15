@@ -13,6 +13,7 @@ services:
       - ./wp/src:/var/www/wp/src:cached
       - ./wordpress-plugin-1:/var/www/wordpress-plugin-1:cached
       - ./wordpress-plugin-2:/var/www/wordpress-plugin-2:cached
+      - ./wordpress-plugin-3:/var/www/wordpress-plugin-3:cached
     networks:
       default:
         aliases:
@@ -36,6 +37,7 @@ services:
       - ./wp/src:/var/www/wp/src:cached
       - ./wordpress-plugin-1:/var/www/wordpress-plugin-1:cached
       - ./wordpress-plugin-2:/var/www/wordpress-plugin-2:cached
+      - ./wordpress-plugin-3:/var/www/wordpress-plugin-3:cached
       - ./wp/docker/logs/php:/var/log/php
 
   db:
