@@ -1,4 +1,4 @@
-name: "Push plugin 3 to read-only repo"
+name: "Build and push plugin 3 to read-only repo"
 
 # on:
 #   release:
@@ -38,6 +38,9 @@ jobs:
 
       - name: Install dependencies
         run: composer install --no-progress --no-suggest -d ./wordpress-plugin-3
+
+      - name: Remove .gitignore
+        run: rm -f .gitignore # remove .gitignore so vendor directory is not ignored
 
       - name: Push to read-only repo
         uses: cpina/github-action-push-to-another-repository@main
