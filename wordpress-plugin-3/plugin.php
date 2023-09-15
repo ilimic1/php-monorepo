@@ -23,6 +23,6 @@ $myUpdateChecker = PucFactory::buildUpdateChecker(
 $myUpdateChecker->getVcsApi()->enableReleaseAssets();
 
 function hello_world() {
-	echo '<p>Hello World 3 - foo</p>';
+	echo '<p>Hello World 3 - foo2</p>';
 }
 add_action( 'admin_notices', __NAMESPACE__ . '\hello_world' );
